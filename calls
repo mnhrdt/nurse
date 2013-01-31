@@ -1,0 +1,1 @@
+cat /usr/include/asm/unistd_32.h|grep -v advise1|egrep "^#define __NR"|sed 's/#define //' | sed 's/\(__NR_[[:alnum:]_]*\).*/REG_SYSC(\1),/g'

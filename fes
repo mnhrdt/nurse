@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. calls > reg_sysc.c
+
+WOPT=""
+WOPT="-pedantic -pedantic-errors -Wall -Wextra"
+diet=""
+diet="diet"
+cc="clang"
+
+
+$diet $cc -g -static -std=c99 $WOPT  setrlim.c -o setrlim
+$diet $cc -g -static -std=c99 $WOPT getrlim.c -o getrlim
+
+#$diet cc -g -static -nostdinc -std=c99 $WOPT trylim.c -o trylim
+#cc -g -static -std=c99 $WOPT trylim.c -o trylim
+$diet $cc -g -static -std=c99 $WOPT trylim.c -o trylim
+
+$diet $cc -g -static -std=gnu99  $WOPT -Wno-unused traça.c -o traça
